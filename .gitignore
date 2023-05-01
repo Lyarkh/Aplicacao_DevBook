@@ -12,7 +12,7 @@
 *.dll
 *.so
 *.dylib
-
+*/.env
 # Test binary, built with `go test -c`
 *.test
 
@@ -73,4 +73,3 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,go
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
-
