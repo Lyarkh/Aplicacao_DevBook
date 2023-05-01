@@ -6,9 +6,7 @@ import (
 	"api/src/repositorios"
 	"api/src/respostas"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -41,7 +39,7 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respostas.JSON(w, http.StatusCreated, usuario)
-	
+
 }
 
 // BuscarUsuarios irá buscar todos os usuarios no banco de dados
