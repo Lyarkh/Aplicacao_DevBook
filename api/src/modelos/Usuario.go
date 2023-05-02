@@ -17,15 +17,15 @@ type Usuario struct {
 }
 
 // Preparar faz a validação dos campos e formatação do struct usuario para enviar para o DB
-func (usuario *Usuario) Preparar() error {
-	if erro := usuario.validar(); erro != nil {
+func (usuario *Usuario) Preparar(etapa string) error {
+	if erro := usuario.validar(etapa); erro != nil {
 		return erro
 	}
 	usuario.formatar()
 	return nil
 }
 
-func (usuario *Usuario) validar() error {
+func (usuario *Usuario) validar(etapa string) error {
 	if usuario.Nome == "" {
 		return errors.New("o nome deve ser preenchido")
 	}
@@ -35,7 +35,7 @@ func (usuario *Usuario) validar() error {
 	if usuario.Email == "" {
 		return errors.New("o email deve ser preenchido")
 	}
-	if usuario.Senha == "" {
+	if etapa == "cadastro"  && usuario.Senha == "" {
 		return errors.New("a senha deve ser preenchido")
 	}
 	return nil
