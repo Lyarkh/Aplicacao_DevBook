@@ -46,5 +46,5 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	token, _ := autenticacao.CriarToken(usuario.ID)
-
+	w.Write([]byte(token))
 }
