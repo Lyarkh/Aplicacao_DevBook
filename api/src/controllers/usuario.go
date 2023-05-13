@@ -117,7 +117,10 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println(usuarioIDNoToken)
+	if usuarioID != usuarioIDNoToken {
+		respostas.Erro(w, http.StatusForbidden, erro)
+		return
+	}
 
 	corpoRequisicao, erro := ioutil.ReadAll(r.Body)
 	if erro != nil {
