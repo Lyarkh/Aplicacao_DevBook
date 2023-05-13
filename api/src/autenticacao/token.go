@@ -48,7 +48,7 @@ func extrairToken(r *http.Request) string {
 
 func retornarChaveDeVerificacao(token *jwt.Token) (interface{}, error) {
 	if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-		return nil, fmt.Errorf("Metodo de assinatura inesperado ! %v", token.Header["alg"])
+		return nil, fmt.Errorf("metodo de assinatura inesperado ! %v", token.Header["alg"])
 	}
 
 	return config.SecretKey, nil
