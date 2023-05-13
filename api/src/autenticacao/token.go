@@ -22,7 +22,19 @@ func CriarToken(usuarioID uint64) (string, error) {
 	return token.SignedString([]byte(config.SecretKey))
 }
 
+// ValidaToken verifica se o token passado é valido
+func ValidarToken(r *http.Request) error {
+	tokenString := extrairToken(r)
+	token, erro := jwt.Parse(tokenString, retornarChaveDeVerificacao)
+	if erro != nil {
+		return erro
+	}
 
+	if _, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		return nil
+	}
+	return errors.New("token inválido")
+}
 
 func extrairToken(r *http.Request) string {
 	token := r.Header.Get("Authorization")
