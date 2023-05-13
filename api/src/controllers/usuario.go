@@ -7,7 +7,7 @@ import (
 	"api/src/repositorios"
 	"api/src/respostas"
 	"encoding/json"
-	"fmt"
+	"errors"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -118,7 +118,7 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if usuarioID != usuarioIDNoToken {
-		respostas.Erro(w, http.StatusForbidden, erro)
+		respostas.Erro(w, http.StatusForbidden, errors.New("não é possivel alterar um usuário que não seja o seu"))
 		return
 	}
 
