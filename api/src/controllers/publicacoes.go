@@ -211,5 +211,5 @@ func DeletarPublicacao(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	return nil
+	respostas.JSON(w, http.StatusNoContent, nil)
 }
