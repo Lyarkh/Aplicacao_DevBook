@@ -148,7 +148,7 @@ func (repositorio Publicacoes) Deletar(publicacaoID uint64) error {
 // BuscarPorUsuario traaz todas as publicações de um determinado usuario
 func (repositorio Publicacoes) BuscarPorUsuario(usuarioID uint64) ([]modelos.Publicacao, error) {
 	linhas, erro := repositorio.db.Query(
-		`SELECT p.*, u.nick FROM publicacoesp
+		`SELECT p.*, u.nick FROM publicacoes p
 		JOIN usuarios u
 		ON u.id = p.autor_id
 		WHERE id = ?`,
@@ -179,4 +179,21 @@ func (repositorio Publicacoes) BuscarPorUsuario(usuarioID uint64) ([]modelos.Pub
 		publicacoes = append(publicacoes, publicacao)
 	}
 	return publicacoes, nil
+}
+
+// Curtir adiciona uma curtida na publicacao
+func (repositorio Publicacoes) Curtir(publicacaoID uint64) error {
+	statement, erro := repositorio.db.Prepare(
+		"UPDATE publicacoes SET curtidas = curtidas + 1 WHERE id = ?",
+	)
+	if erro != nil {
+		return erro
+	}
+
+	defer statement.Close()
+
+	if _,erro = statement.Exec(publicacaoID); erro != nil {
+		return erro
+	}
+	return nil
 }
