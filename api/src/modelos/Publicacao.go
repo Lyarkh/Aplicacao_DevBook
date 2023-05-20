@@ -12,3 +12,13 @@ type Publicacao struct {
 	Curtidas  uint64    `json:"curtidas"`
 	CriadaEm  time.Time `json:"criadaEm,omitempty"`
 }
+
+
+func (publicacao Publicacao) Preparar() error {
+	if erro := publicacao.validar(); erro != nil {
+		return erro
+	}
+
+	publicacao.formatar()
+	return nil
+}
