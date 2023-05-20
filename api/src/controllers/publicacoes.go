@@ -162,7 +162,7 @@ func AtualizarPublicacao(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	erro := repositorio.Atualizar(publicacaoID)
+	erro := repositorio.Atualizar(publicacaoID, publicacao)
 	if erro != nil {
 		respostas.Erro(w, http.StatusInternalServerError, erro)
 		return
