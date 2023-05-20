@@ -41,7 +41,7 @@ func (repositorio Publicacoes) Criar(publicacao modelos.Publicacao) (uint64, err
 
 // BuscarPorID tras uma unica publicação do banco de dados
 func (repositorio Publicacoes) BuscarPorID(publicacaoID uint64) (modelos.Publicacao, error) {
-	linha, erro  := repositorio.db.Query(`
+	linha, erro := repositorio.db.Query(`
 		SELECT p.*, u.nick FROM publicacoes p
 		INNER JOIN usuarios u on u.id = p.autor_id WHERE p.id = ?
 	`, publicacaoID,
@@ -79,7 +79,8 @@ func (repositorio Publicacoes) Buscar(usuarioID uint64) ([]modelos.Publicacao, e
 		SELECT DISTINCT p.*, u.unick FROM publicacoes p
 		INNER JOIN usuarios u ON u.id = p.autor_id
 		INNER JOIN seguidores s ON p.autor_id = s.usuario_id
-		WHERE u.id = ? or s.seguidor_id = ?`,
+		WHERE u.id = ? or s.seguidor_id = ?
+		ORDER BY 1 desc`,
 		usuarioID, usuarioID,
 	)
 	if erro != nil {
