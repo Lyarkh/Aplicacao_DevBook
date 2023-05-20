@@ -81,7 +81,7 @@ func BuscarPublicacao(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 
 	repositorio := repositorios.NovoRepositorioDePublicacoes(db)
-	publicacao, erro = repositorio.BuscarPorID(publicacaoID)
+	publicacao, erro := repositorio.BuscarPorID(publicacaoID)
 	if erro != nil {
 		respostas.Erro(w, http.StatusInternalServerError, erro)
 		return
