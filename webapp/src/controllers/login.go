@@ -1,8 +1,11 @@
 package controllers
 
-import "net/http"
+import (
+	"net/http"
+	"webapp/src/utils"
+)
 
 // CarregarTelaDeLogin irá renderizar a tela de Login
 func CarregarTelaDeLogin(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Tela de Login"))
+	utils.ExecutarTemplate(w, "login.html", nil)
 }
