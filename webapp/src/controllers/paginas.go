@@ -9,3 +9,8 @@ import (
 func CarregarTelaDeLogin(w http.ResponseWriter, r *http.Request) {
 	utils.ExecutarTemplate(w, "login.html", nil)
 }
+
+// CarregarPaginaDeCadastroUsuario vai carregar a pagina de usuario
+func CarregarPaginaDeCadastroUsuario(w http.ResponseWriter, r *http.Request) {
+	utils.ExecutarTemplate(w, "cadastro.html", nil)
+}
