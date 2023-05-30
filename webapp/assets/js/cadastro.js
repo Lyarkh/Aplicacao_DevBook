@@ -12,10 +12,10 @@ function criarUsuario(evento) {
         url: "/usuarios",
         method: "POST",
         data: {
-           nome: $('#nome').val(),
-           email: $('#email').val(),
-           nick: $('#nick').val(),
-           senha: $('#senha').val()
+            nome: $('#nome').val(),
+            email: $('#email').val(),
+            nick: $('#nick').val(),
+            senha: $('#senha').val()
         }
     }).done(function() {
         Swal.fire("Sucesso!", "Usuário cadastrado com sucesso!", "success")
