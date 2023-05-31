@@ -214,7 +214,6 @@ func DeletarPublicacao(w http.ResponseWriter, r *http.Request) {
 	respostas.JSON(w, http.StatusNoContent, nil)
 }
 
-
 // BuscarPublicacoesPorUsuario traz todas as publicações de um determinado usuario
 func BuscarPublicacoesPorUsuario(w http.ResponseWriter, r *http.Request) {
 	parametros := mux.Vars(r)
