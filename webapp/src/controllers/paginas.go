@@ -13,12 +13,12 @@ func CarregarTelaDeLogin(w http.ResponseWriter, r *http.Request) {
 	utils.ExecutarTemplate(w, "login.html", nil)
 }
 
-// CarregarPaginaDeCadastroUsuario vai carregar a pagina de usuario
+// CarregarPaginaDeCadastroUsuario vai carregar a pagina de usuário
 func CarregarPaginaDeCadastroUsuario(w http.ResponseWriter, r *http.Request) {
 	utils.ExecutarTemplate(w, "cadastro.html", nil)
 }
 
-// CarregarPaginaPrincipal carrega a pagina principal com as publicacoes
+// CarregarPaginaPrincipal carrega a pagina principal com as publicações
 func CarregarPaginaPrincipal(w http.ResponseWriter, r *http.Request) {
 	url := fmt.Sprintf("%s/publicacoes", config.APIURL)
 	response, erro := requisicoes.FazerRequisicaoComAutenticacao(r, http.MethodGet, url, nil)
