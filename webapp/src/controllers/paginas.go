@@ -43,5 +43,5 @@ func CarregarPaginaPrincipal(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecutarTemplate(w, "home.html", nil)
+	utils.ExecutarTemplate(w, "home.html", publicacoes)
 }
