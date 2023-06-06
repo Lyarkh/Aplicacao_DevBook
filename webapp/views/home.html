@@ -63,6 +63,28 @@
                         <button class="btn btn-primary" type="submit">
                             Publicar
                         </button>
+                    </form>
+                </fieldset>
+            </div>
+            <div class="cplo-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                {{ range . }}
+                <div class="jumbotron">
+                    <div class="display-4">
+                        {{ .Titulo }}
+                        <p class="lead">{{ .Conteudo }} </p>
+                        <a href="#">{{ .AutorNck }} - {{ .CriadaEm }}</a>
+                        <hr class="my-4">
+                        <p>Botões</p>
+
+                    </div>
+                </div>
+
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
