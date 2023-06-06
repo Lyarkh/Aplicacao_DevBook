@@ -1,47 +1,14 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Principal</title>
+    <title>DevBook</title>
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">DevBook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-principal"
-            aria-controls="navbar-principal" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar-principal">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/home">Página Principal <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/perfil">Meu Perfil</a>
-                </li>
-
-                <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0" action="/buscar-usuarios" method="GET">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Usuários" id="usuario"
-                            name="usuario" required="required">
-                    </form>
-                </li>
-            </ul>
-
-            <span class="navbar-text p-0">
-                <a href="/logout">
-                    Sair
-                    <i class="fas fa-power-off"></i>
-                </a>
-            </span>
-        </div>
-    </nav>
-
+    {{ template "cabecalho" }}
 
     <div class="container-fluid">
         <div class="row mt-4">
@@ -66,31 +33,23 @@
                     </form>
                 </fieldset>
             </div>
-            <div class="cplo-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
-                {{ range . }}
-                <div class="jumbotron">
-                    <div class="display-4">
-                        {{ .Titulo }}
-                        <p class="lead">{{ .Conteudo }} </p>
-                        <a href="#">{{ .AutorNck }} - {{ .CriadaEm }}</a>
-                        <hr class="my-4">
-                        <p>Botões</p>
-
-                    </div>
-                </div>
-
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                {{ range .Publicacoes }}
+                    {{ if (eq .AutorID $.UsuarioID) }}
+                        {{ template "publicacao-com-permissao" . }}
+                    {{ else }}
+                        {{ template "publicacao-sem-permissao" . }}
+                    {{ end }}
                 {{ end }}
             </div>
         </div>
     </div>
 
-    <footer class="text-muted nt-4">
-        <div>
-            <p>
-                DevBook 2023. Todos os direitos reservados.
-            </p>
-        </div>
-    </footer>
+    {{ template "rodape" }}
+
+    {{ template "scripts"}}
+
+    <script src="/assets/js/publicacoes.js"></script>
 </body>
 
 </html>
