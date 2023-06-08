@@ -1,6 +1,9 @@
 # Aplicação DevBook - API
 
 ---
+![GitHub](https://img.shields.io/github/license/Lyarkh/Aplicacao_DevBook)
+![GitHub last commit](https://img.shields.io/github/last-commit/Lyarkh/Aplicacao_DevBook)
+![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/Lyarkh/Aplicacao_DevBook?filename=api%2Fgo.mod)
 
 ## Resumo
 
