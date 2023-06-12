@@ -1,6 +1,13 @@
 package controllers
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+	"webapp/src/config"
+	"webapp/src/requisicoes"
+	"webapp/src/respostas"
+)
+
 
 // CriarPublicacao chama a API para cadastrar uma publicação no banco de dados
 func CriarPublicacao(w http.ResponseWriter, r *http.Request) {
