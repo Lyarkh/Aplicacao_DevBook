@@ -1,6 +1,9 @@
 package rotas
 
-import "net/http"
+import (
+	"net/http"
+	"webapp/src/controllers"
+)
 
 var rotasPublicacoes = []Rota{
 	{
