@@ -79,4 +79,12 @@ func CarregarPaginaDeEdicaoDePublicacao(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
+	var publicacao modelos.Publicacao
+	if erro = json.NewDecoder(response.Body).Decode(&publicacao); erro != nil {
+		respostas.JSON(w, http.StatusUnprocessableEntity, respostas.ErroAPI{Erro: erro.Error()})
+		return
+	}
+
+	utils.ExecutarTemplate(w, "atualizar-publicacao.html", publicacao)
+
 }
