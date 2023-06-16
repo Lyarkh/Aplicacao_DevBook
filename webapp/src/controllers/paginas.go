@@ -11,6 +11,8 @@ import (
 	"webapp/src/requisicoes"
 	"webapp/src/respostas"
 	"webapp/src/utils"
+
+	"github.com/gorilla/mux"
 )
 
 // CarregarTelaDeLogin irá renderizar a tela de Login
@@ -55,7 +57,6 @@ func CarregarPaginaPrincipal(w http.ResponseWriter, r *http.Request) {
 		UsuarioID:   usuarioID,
 	})
 }
-
 
 // CarregarPaginaDeEdicaoDePublicacao carrega a pagina de edição de publicação
 func CarregarPaginaDeEdicaoDePublicacao(w http.ResponseWriter, r *http.Request) {
