@@ -27,7 +27,7 @@ var rotasPublicacoes = []Rota{
 	{
 		URI:                "/publicacoes/{publicacaoId}/atualizar",
 		Metodo:             http.MethodGet,
-		Funcao:             controllers.CarregarPaginaDeEdicaoDePublicacao,
+		Funcao:             controllers.CarregarPaginaDeAtualizacaoDePublicacao,
 		RequerAutenticacao: true,
 	},
 	{
