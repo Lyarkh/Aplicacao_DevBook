@@ -30,4 +30,10 @@ var rotasPublicacoes = []Rota{
 		Funcao:             controllers.CarregarPaginaDeEdicaoDePublicacao,
 		RequerAutenticacao: true,
 	},
+	{
+		URI:                "/publicacoes/{publicacaoId}",
+		Metodo:             http.MethodPut,
+		Funcao:             controllers.EditarPublicacao,,
+		RequerAutenticacao: true,
+	},
 }
