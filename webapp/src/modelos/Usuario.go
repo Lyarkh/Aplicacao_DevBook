@@ -12,6 +12,6 @@ type Usuario struct {
 	Nick        string       `json:"nick"`
 	CriadoEm    time.Time    `json:"criadoEm"`
 	Seguidores  []Usuario    `json:"seguidores"`
-	Seguindores []Usuario    `json:"seguindo"`
+	Seguindo    []Usuario    `json:"seguindo"`
 	Publicacoes []Publicacao `json:"publicacoes"`
 }
