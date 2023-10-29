@@ -34,3 +34,6 @@ Siga os passos para baixar o  projeto:
 ---
 
 Para que funcione corretamente é necessário executar tanto a parte da api como a parte do webapp.
+
+
+![logo_golang](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png)
